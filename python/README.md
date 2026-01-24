@@ -28,7 +28,10 @@ The script uses microcode reverse engineered from data transcactions between the
 
 usage is
 
-py C7000_read_Q128.py  COM_PORT BACKUP_FILE_NAME.bin
+py C7000_read_Q128.py  COM_PORT BACKUP_FILE_NAME.bin <START_ADDRESS_IN_HEX> <END_ADDRESS_IN_HEX>
+
+If no start or end address is specified, the entire 16Mb chip will be read
+
 
 This script needs to be run while the radio is connected to the PC but the radio must be turned off.
 Once the script has been run, you have 30 seconds to turn on the radio
