@@ -1,4 +1,4 @@
-## Various Python scripts...
+# Various Python scripts...
 
 Note. All files require Python 3 and pyserial to be installed
 
@@ -7,7 +7,7 @@ Pyserial can be installed using the command
 pip install pyserial
 
 
-# C7000_read_progmem.py
+## C7000_read_progmem.py
 
 This script reads the program memory GD25Q08 using the same method as the UV008 Flash tool (written by andynvkz)
 The script uses microcode reverse engineered from data transcactions between the UV008 Flash tool and the DM32
@@ -21,7 +21,7 @@ Once the script has been run, you have 30 seconds to turn on the radio
 After the radio is turned on the script will upload the microcode and begin reading the memory
 
 
-# C7000_read_Q128.py
+## C7000_read_Q128.py
 
 This script reads the program memory GD25Q126 (16Mb main flash memory) using the same method as the UV008 Flash tool (written by andynvkz)
 The script uses microcode reverse engineered from data transcactions between the UV008 Flash tool and the DM32
@@ -35,7 +35,7 @@ Once the script has been run, you have 30 seconds to turn on the radio
 After the radio is turned on the script will upload the microcode and begin reading the memory
 
 
-# DM32_firmware_loader.py
+## DM32_firmware_loader.py
 
 This script uploads raw unpackaged firmware data into the radio
 
