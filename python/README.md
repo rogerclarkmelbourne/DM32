@@ -60,16 +60,14 @@ After the radio is turned on the script will upload the microcode and begin read
 
 ## DM32_firmware_loader.py
 
-This script uploads raw unpackaged firmware data into the radio
+This script uploads firmware data into the radio using the Baofeng bootloader
 
-IT SHOULD NOT BE USED WITH THE OFFICIAL BAOFENG FIRMWARE 
+The script attempts to detect whether the firmware file is a packaged official Baofeng firmware, or a raw firmware file, e.g. OpenTRx or OpenGD77 etc
 
 py DM32_firmware_loader.py  COM_PORT RAW_FIRMWARE_DATA.bin
 
 To use this script, the radio needs to be in firmware update mode, i.e hold PTT and button SK1 (the button below the PTT), when turning on the radio
 
-If you attempt to use this script to upload an official Baofeng firmware, the radio will not work after the firmware is loaded.
-This is because the Baofeng firmware is packaged with a 256 byte header, and this header is removed by the Baofeng CPS before the firmware is uploaded
-
-If you want to use this loader with the official Baofeng firmware, you should use a binary editor to first remove the 256 byte header.
-
+If the radio does not reboot into the firmware after loading has finished. The radio should be turned off, and the battery removed and reconnected.
+Holding PTT + SK1 on the side of the radio, when turning the radio on, should again show the green LED which means the radio is fine, 
+but the firmware file was not compatible with the DM32
