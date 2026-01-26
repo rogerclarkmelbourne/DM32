@@ -56,10 +56,25 @@ if (fileSize % BLOCK_SIZE != 0):
     
 blockCount = 0
 
-with open(sys.argv[2], "rb") as fimware:
 
-    print("Send Erase command. Waiting to for up to 15 seconds for this to finish")
+
+
+with open(sys.argv[2], "rb") as firmware:
+
+    header = firmware.read(9)
+    try:
+        if header.decode('utf-8') == ('BFUV32-V2'):
+            print("Official Baofeng firmware detected.")
+            firmware.seek(0)
+            firmware.seek(0x100)
+        else:
+            firmware.seek(0)
+    except UnicodeDecodeError:
+        firmware.seek(0)
     
+    
+    
+    print("Send Erase command. Waiting to for up to 15 seconds for this to finish")
 
     port.write(b'\x00\xFF')
     
@@ -97,7 +112,7 @@ with open(sys.argv[2], "rb") as fimware:
     lastPercentage = 0
     
     while True:
-        block = fimware.read(BLOCK_SIZE)
+        block = firmware.read(BLOCK_SIZE)
         if not block:
             break
         blockLen = len(block)
