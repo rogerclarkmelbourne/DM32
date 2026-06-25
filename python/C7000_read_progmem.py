@@ -88,6 +88,12 @@ time.sleep(0.5)
 print("Request data")
 with open(sys.argv[2], "wb") as backupFile:
     address = 0
+    if (len(sys.argv) >= 4):
+        address = int(sys.argv[3],16)
+    
+    if (len(sys.argv) >= 5):
+        endAddress = int(sys.argv[4],16)
+        
     while address < 0x100000:
         print(hex(address))
 
